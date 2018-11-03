@@ -12,15 +12,11 @@
 */
 
 //Inicio
-Route::get("/", "InicioController@index");
 
-<<<<<<< HEAD
 Route::get("/", [
 	'uses'	=> 	'InicioController@index',
 	'as'	=>	'/'
 	]);
-=======
->>>>>>> ad2b7f33e85bc884c2275a718ab475da1aa898c6
 
 //Empresa
 Route::get("/empresa", "EmpresaController@index");
@@ -56,23 +52,12 @@ Route::get('pais_sc', [
 	'as' => 'pais_sc'
 	]);
 
-<<<<<<< HEAD
 		// Lista Dinamicas
 
 Route::get('lista_dinamica', [
 	'uses' => 'ListaDinamicaController@index',
 	'as' => 'lista_dinamica'
 	]);
-=======
-
-
-
-
-
-
-
-
-
 
 
 	/*
@@ -83,7 +68,6 @@ Route::get('lista_dinamica', [
 	*/
 
 
-
 // pagina de inicio para Reporte sEO
 Route::get("/reporte_seo", "ReporteSEOController@index");
->>>>>>> ad2b7f33e85bc884c2275a718ab475da1aa898c6
+
