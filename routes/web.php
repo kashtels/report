@@ -14,6 +14,11 @@
 //Inicio
 Route::get("/", "InicioController@index");
 
+Route::get("/", [
+	'uses'	=> 	'InicioController@index',
+	'as'	=>	'/'
+	]);
+
 //Empresa
 
 
@@ -45,4 +50,11 @@ Route::get('pais_sc', [
 Route::get('pais_sc', [
 	'uses' => 'PaisController@pais_sc',
 	'as' => 'pais_sc'
+	]);
+
+		// Lista Dinamicas
+
+Route::get('lista_dinamica', [
+	'uses' => 'ListaDinamicaController@index',
+	'as' => 'lista_dinamica'
 	]);
