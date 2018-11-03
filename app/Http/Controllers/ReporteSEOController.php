@@ -6,20 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class EmpresaController extends Controller
-{
+class ReporteSEOController extends Controller{
 
-    public function empresa_cc()
-    {
-        return view('empresa.cc');
-    }
-
-    public function empresa_sc()
-    {
-        return view('empresa.sc');
-    }
-
-    public function index(Request $request){
+    public function index(){
 
 
       $TotalAgenteWCA_HO = DB::select("select count(empresa) from agentes.empresa where network = 'www.wcaworld.com' and lower(nombre) like '%head%'; ");
@@ -30,7 +19,7 @@ class EmpresaController extends Controller
         "TotalAgenteWCA_Sucursal" => $TotalAgenteWCA_Sucursal
       ];
 
-   	  return view('empresa.main', $datos);
+   	  return view('reporteSEO.main', $datos);
     }
 
 
