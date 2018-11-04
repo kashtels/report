@@ -12,7 +12,7 @@
                     <a href="index.html"><i class="menu-icon fa fa-bar-chart"></i>Empresa </a>
                 </li>
                 <li class="">
-                    <a href="index.html"><i class="menu-icon fa fa-bar-chart"></i>Correo </a>
+                    <a href="{{route('correo')}}"><i class="menu-icon fa fa-bar-chart"></i>Correo </a>
                 </li>
                 <li class="">
                     <a href="{{route('lista_dinamica')}}"><i class="menu-icon fa fa-bar-chart"></i>Lista Dinamica</a>

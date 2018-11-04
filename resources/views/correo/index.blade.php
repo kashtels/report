@@ -20,41 +20,37 @@
                         <div class="col-lg-8">
                             <div class="card-body">
 
-<!--
-                            	<select>                                   #Desechar
+
+                            	<select>
 
 								  <option value="" selected>Todos los países</option>
-								  @foreach($paises as $pais)
-								  <option value="{{$pais->id_pais_pk}}">{{ucwords($pais->pais)}}</option>
-								  @endforeach
+								  
+								  <option value=""></option>
+								  
 								</select>								
 
 								<br> 
                                 
                             	<br>
--->
+
                                 <table id="example" class="table table-striped table-bordered">
 
 									<thead>
                                         <th>#</th>
 										<th>Empresa</th>
                                         <th>Pais</th>
-                                        <th>Web</th>
-<!--										<th>Sedes</th>			      #Trabajar Modulo para obtener datos de columnas
-										<th>Sucursales</th>       -->                                  
+                                        <th>Web</th>                               
 									</thead>
 
 									<tbody>
-                                    @foreach($empresas as $empresa)
+
 											<tr>
                                                 <td>1</td>
-												<td>{{$empresa->nombre}}</td>
-												<td>{{ucwords($empresa->pais)}}</td>
-                                                <td>{{$empresa->web}}</td>
-<!--                                                <td>20</td>           #Trabajar Modulo para obtener datos de columnas
-												<td>80</td> -->
+												<td>x</td>
+												<td>c</td>
+                                                <td>2</td>
 											</tr>
-                                    @endforeach
+                                    
 									</tbody>
 
 								</table>
@@ -65,14 +61,14 @@
                             <div class="card-body">
                                 <div class="progress-box progress-1">
                                     <h4 class="por-title">Total Empresas</h4>
-                                    <div class="por-txt">{{$total_empresas}} (100%)</div>
+                                    <div class="por-txt"> (100%)</div>
                                     <div class="progress mb-2" style="height: 5px;">
                                         <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="progress-box progress-2">
                                     <h4 class="por-title">Total Oficinas Principales</h4>
-                                    <div class="por-txt">x (24%)</div>
+                                    <div class="por-txt">z (24%)</div>
                                     <div class="progress mb-2" style="height: 5px;">
                                         <div class="progress-bar bg-flat-color-2" role="progressbar" style="width: 24%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
@@ -120,10 +116,16 @@
     <script> 
  var j= jQuery.noConflict();
  
-j(document).ready(function() {  
+c(document).ready(function() {  
     
 
-	j('#example').DataTable({
+	c('#example').DataTable({
+        "columnDefs": [
+            {
+                "targets": [ 2 ],
+                "visible": false
+            }
+        ],
 	    retrieve: true,
     language:{
     "sProcessing":     "Procesando...",
