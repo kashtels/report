@@ -94,6 +94,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
+
     <!-- All Jquery -->
     <script src="Map-Vector/js/lib/jquery/jquery.min.js"></script>
     <!--Menu sidebar -->
@@ -115,7 +116,7 @@
  
 c(document).ready(function() {  
     
-
+    
 	c('#correos').DataTable({
 	    retrieve: true,
     language:{
@@ -140,11 +141,14 @@ c(document).ready(function() {
     "oAria": {
         "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
         "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-    }
-}
-	    
-	    
-	});
+    } 
+}	    
+    });
+   
+    c('.dataTables_filter input').addClass('search-bar');
+
+    $('#correos_filter input').attr('id', 'search-bar');
+
 } );
 </script> 
     
