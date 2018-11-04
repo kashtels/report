@@ -48,3 +48,26 @@ Route::get('pais_sc', [
 	'uses' => 'PaisController@pais_sc',
 	'as' => 'pais_sc'
 	]);
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Reporte CEO
+	|--------------------------------------------------------------------------
+	|
+	*/
+
+
+
+// pagina de inicio para Reporte sEO
+Route::get("/reporte_seo", "ReporteSEOController@index");
