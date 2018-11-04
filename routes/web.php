@@ -14,11 +14,13 @@
 //Inicio
 Route::get("/", "InicioController@index");
 
+
 //Empresa
+Route::get("/empresa", "EmpresaController@index");
 
 
-		// Empresa (Correo)
 
+// Empresa (Correo)
 Route::get('empresa_cc', [
 	'uses' => 'EmpresaController@empresa_cc',
 	'as' => 'empresa_cc'

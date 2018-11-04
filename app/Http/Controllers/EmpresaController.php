@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class EmpresaController extends Controller
 {
-    
+
     public function empresa_cc()
     {
         return view('empresa.cc');
@@ -17,26 +19,20 @@ class EmpresaController extends Controller
         return view('empresa.sc');
     }
 
-    public function index(Request $request){ 
-
-    	// Consulta DB Empresa
-
-      $empresa = DB::table('empresa')
-            ->select('')           
-            ->orderBy('')
-            ->get();
-
-        // Consulta DB Correo
-            
-      $correo = DB::table('empresa')
-            ->select('')           
-            ->orderBy('')
-            ->get();
+    public function index(Request $request){
 
 
-           	 return view('empresa.cc', array('$empresa' => $empresa))->with('correo',$correo);
+      $TotalAgenteWCA_HO = DB::select("select count(empresa) from agentes.empresa where network = 'www.wcaworld.com' and lower(nombre) like '%head%'; ");
+      $TotalAgenteWCA_Sucursal = DB::select("select count(empresa) from agentes.empresa where network = 'www.wcaworld.com' and lower(nombre) not like '%head%'; ");
+
+      $datos = [
+        "TotalAgenteWCA_HO" => $TotalAgenteWCA_HO,
+        "TotalAgenteWCA_Sucursal" => $TotalAgenteWCA_Sucursal
+      ];
+
+   	  return view('empresa.main', $datos);
     }
- 
-    
+
+
 
 }
