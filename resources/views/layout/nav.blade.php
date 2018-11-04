@@ -17,7 +17,7 @@
               </li> <!-- /agenets menu -->
 
               <!-- Reporte CEO -->
-              <li><a href="{{ url("/reporte_seo") }}"><i class="menu-icon fa fa-laptop"></i>Reporte CEO </a></li>
+              <li><a href="{{ url("/reporte_seo") }}"><i class="menu-icon fa fa-laptop"></i>Reporte SEO </a></li>
               <!-- /Reporte CEO -->
 
 

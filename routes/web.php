@@ -71,3 +71,5 @@ Route::get('pais_sc', [
 
 // pagina de inicio para Reporte sEO
 Route::get("/reporte_seo", "ReporteSEOController@index");
+// carar timeline grafico
+Route::post("/reporte_seo/cargar_timeline", "ReporteSEOController@timeline");

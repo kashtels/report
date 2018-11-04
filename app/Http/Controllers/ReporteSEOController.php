@@ -9,19 +9,48 @@ use Illuminate\Support\Facades\DB;
 class ReporteSEOController extends Controller{
 
     public function index(){
+      $dm = DB::select("select distinct(dominio) from posicionamiento.posicionamiento");
 
-
-      $TotalAgenteWCA_HO = DB::select("select count(empresa) from agentes.empresa where network = 'www.wcaworld.com' and lower(nombre) like '%head%'; ");
-      $TotalAgenteWCA_Sucursal = DB::select("select count(empresa) from agentes.empresa where network = 'www.wcaworld.com' and lower(nombre) not like '%head%'; ");
-
-      $datos = [
-        "TotalAgenteWCA_HO" => $TotalAgenteWCA_HO,
-        "TotalAgenteWCA_Sucursal" => $TotalAgenteWCA_Sucursal
-      ];
-
-   	  return view('reporteSEO.main', $datos);
+   	  return view('reporteSEO.main', ["dm" => $dm]);
     }
 
 
+    private function posicion($valor){
+      foreach ($valor as $key => $value) {
+        $aux = ($value->pagina * 10 );
+        $aux = ($aux - 10);
+        $aux = ($aux + $value->posicion);
+
+        if ($aux > 0){
+          $valor[$key]->numero = $aux;
+        }
+        else{
+          $valor[$key]->numero = 0;
+        }
+
+
+      }
+
+      return $valor;
+    }
+
+    public function timeline(Request $request){
+      $inicio = $request->input("inicio");
+      $final  = $request->input("final");
+      $dominio= $request->input("dominio");
+
+
+      $kw   = DB::select("select distinct(keyword) from posicionamiento.posicionamiento where dominio = '".$dominio."' ");
+
+      $pic   = DB::select("select * from posicionamiento.posicionamiento where dominio = '".$dominio."'  and  fecha between '".$inicio."' and '".$final."'");
+      $pic   = $this->posicion($pic);
+
+
+
+
+      print json_encode(["pic" => $pic, "kw" => $kw]);
+
+
+    }
 
 }
