@@ -15,44 +15,22 @@
 Route::get("/", "InicioController@index");
 
 
+
+
+/*
+|--------------------------------------------------------------------------
+| Reporte Empresas
+|--------------------------------------------------------------------------
+|
+*/
+
+
+
 //Empresa
 Route::get("/empresa", "EmpresaController@index");
 
-
-
-// Empresa (Correo)
-Route::get('empresa_cc', [
-	'uses' => 'EmpresaController@empresa_cc',
-	'as' => 'empresa_cc'
-	]);
-
-		// Empresa (Sin Correo)
-
-Route::get('empresa_sc', [
-	'uses' => 'EmpresaController@empresa_sc',
-	'as' => 'empresa_sc'
-	]);
-
-//Pais
-
-		// País (Correo)
-
-Route::get('pais_sc', [
-	'uses' => 'PaisController@pais_sc',
-	'as' => 'pais_sc'
-	]);
-
-		// Pais (Sin Correo)
-
-Route::get('pais_sc', [
-	'uses' => 'PaisController@pais_sc',
-	'as' => 'pais_sc'
-	]);
-
-
-
-
-
+Route::post("/empresa/cargar_pais", "EmpresaController@cargar_pais");
+Route::post("/empresa/cargar_wca_lista", "EmpresaController@cargar_wca_lista");
 
 
 
@@ -62,7 +40,7 @@ Route::get('pais_sc', [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Reporte CEO
+	| Reporte SEO
 	|--------------------------------------------------------------------------
 	|
 	*/

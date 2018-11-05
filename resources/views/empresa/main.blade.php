@@ -2,6 +2,8 @@
 @extends('layout/nav')
 @section ('title','Inicio')
 @section("css")
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 @endsection
 @section ('contenido')
@@ -18,38 +20,13 @@
                         <h4 class="box-title">Información general </h4>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <div class="card-body">
                                 <!-- <canvas id="TrafficChart"></canvas>   -->
                                 <canvas id="barChart"></canvas>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="card-body">
-                                <div class="progress-box progress-1">
-                                    <h4 class="por-title">Total empresas principales</h4>
-                                    <div class="por-txt">96,930 Users (40%)</div>
-                                    <div class="progress mb-2" style="height: 5px;">
-                                        <div class="progress-bar bg-flat-color-1" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="progress-box progress-2">
-                                    <h4 class="por-title">Total empresas con correo</h4>
-                                    <div class="por-txt">3,220 Users (24%)</div>
-                                    <div class="progress mb-2" style="height: 5px;">
-                                        <div class="progress-bar bg-flat-color-2" role="progressbar" style="width: 24%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="progress-box progress-2">
-                                    <h4 class="por-title">Total empresas sin correo</h4>
-                                    <div class="por-txt">29,658 Users (60%)</div>
-                                    <div class="progress mb-2" style="height: 5px;">
-                                        <div class="progress-bar bg-flat-color-3" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
 
-                            </div> <!-- /.card-body -->
-                        </div>
                     </div> <!-- /.row -->
                     <div class="card-body"></div>
                 </div>
@@ -57,6 +34,81 @@
         </div>
         <!--  /Traffic -->
         <div class="clearfix"></div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="box-title">Información WCA</h4>
+
+                <div class="row mt-5">
+                  <div class="col-sm-5">
+                    <select class="form-control" name="continente">
+                      <option value="" selected disabled>Seleccione un continente</option>
+                      @foreach ($continente as $key => $value)
+                        <option value="{{ $value->id_continente_pk }}">{{ $value->continente }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="col-sm-5">
+                    <select class="form-control" name="pais">
+                      <option value="" selected disabled>Seleccione un pais</option>
+
+                    </select>
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="button" id="cargar" class="btn btn-primary btn-block">Cargar</button>
+                  </div>
+                </div>
+
+
+                <div class="row mt-5">
+                  <div class="col-lg-12">
+                    <canvas id="pieChart"></canvas>
+                  </div>
+                  <div class="col-sm-4">
+                    Total oficinas principales: <span id="totalOficinasPrincipales"></span>
+                  </div>
+                  <div class="col-sm-4">
+                    Total sucursales: <span id="totalOficinasSucursal"></span>
+                  </div>
+                  <div class="col-sm-4">
+                    Total global: <span id="totalglobal"></span>
+                  </div>
+                </div>
+
+
+                <div class="row mt-5">
+
+
+                  <div class="card col-sm-12">
+                    <div class="card-body">
+
+                      <table id="myTable">
+                        <thead>
+                          <tr>
+                            <th>Empresa</th>
+                            <th>Direccion</th>
+                            <th>Contacto</th>
+                            <th>Web</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
 
 
     <!-- /#add-category -->
@@ -69,7 +121,12 @@
 
 @endsection
 @section('js')
-  <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+
+<script src="{{ asset("js/wca/cargar.js") }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.all.min.js" charset="utf-8"></script>
+<script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" charset="utf-8"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js" charset="utf-8"></script>
+<script src="{{ asset("js/jszip.min.js") }}" charset="utf-8"></script>
 
   <!--Local Stuff-->
   <script>
@@ -101,15 +158,7 @@
                         borderColor: "rgba(0,0,0,0.09)",
                         borderWidth: "0",
                         backgroundColor: "rgba(0,0,0,0.07)"
-                      },
-
-                    {
-                        label: "Correo",
-                        data: [ 28, 48, 40 ],
-                        borderColor: "rgba(21,140,47,1.09)",
-                        borderWidth: "0",
-                        backgroundColor: "rgba(21,140,47,0.65)"
-                      },
+                      }
 
 
 
@@ -125,6 +174,7 @@
                 }
             }
         } );
+
 
 
 

@@ -1,1 +1,0 @@
-sc.blade.php
