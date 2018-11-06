@@ -5,6 +5,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
 
+
               <li><a href="{{ url("/") }}"><i class="menu-icon fa fa-laptop"></i>Inicio </a></li>
 
               <!-- agenets menu -->
@@ -12,7 +13,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Agentes</a>
                 <ul class="sub-menu children dropdown-menu">
                   <li><i class="fa fa-bar-chart"></i><a href="{{ url("/empresa") }}">Empresa </a></li>
-                  <li><i class="fa fa-bar-chart"></i><a href="index.html">Correo </a></li>
+                  <li><i class="fa fa-bar-chart"></i><a href="{{route('correo')}}">Correo </a></li>
                 </ul>
               </li> <!-- /agenets menu -->
 
@@ -20,8 +21,9 @@
               <li><a href="{{ url("/reporte_seo") }}"><i class="menu-icon fa fa-laptop"></i>Reporte SEO </a></li>
               <!-- /Reporte CEO -->
 
-
-
+              <!-- Lista Dinamica -->
+              <li class=""><a href="{{route('lista_dinamica')}}"><i class="menu-icon fa fa-bar-chart"></i>Lista Dinamica</a></li>
+              <!-- /Lista Dinamica -->
 
             </ul>
         </div><!-- /.navbar-collapse -->

@@ -12,17 +12,36 @@
 */
 
 //Inicio
-Route::get("/", "InicioController@index");
+
+
+Route::get("/", [
+	'uses'	=> 	'InicioController@index',
+	'as'	=>	'/'
+	]);
 
 
 
+		// Correos
 
-/*
-|--------------------------------------------------------------------------
-| Reporte Empresas
-|--------------------------------------------------------------------------
-|
-*/
+Route::get('correo', [
+	'uses' => 'CorreoController@index',
+	'as' => 'correo'
+	]);
+
+		// Lista Dinamicas
+
+Route::get('lista_dinamica', [
+	'uses' => 'ListaDinamicaController@index',
+	'as' => 'lista_dinamica'
+	]);
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Reporte Empresas
+	|--------------------------------------------------------------------------
+	|
+	*/
 
 
 
@@ -33,11 +52,6 @@ Route::post("/empresa/cargar_pais", "EmpresaController@cargar_pais");
 Route::post("/empresa/cargar_wca_lista", "EmpresaController@cargar_wca_lista");
 
 
-
-
-
-
-
 	/*
 	|--------------------------------------------------------------------------
 	| Reporte SEO
@@ -46,8 +60,8 @@ Route::post("/empresa/cargar_wca_lista", "EmpresaController@cargar_wca_lista");
 	*/
 
 
-
 // pagina de inicio para Reporte sEO
 Route::get("/reporte_seo", "ReporteSEOController@index");
+
 // carar timeline grafico
 Route::post("/reporte_seo/cargar_timeline", "ReporteSEOController@timeline");

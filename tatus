@@ -1,0 +1,48 @@
+[33mcommit 8bfb54cb49c1369d5bc32cdcca0adcec0c84e9be[m[33m ([m[1;36mHEAD -> [m[1;32mlista_dinamica[m[33m, [m[1;31morigin/lista_dinamica[m[33m)[m
+Author: Jcapote <juanluis.capote8@gmail.com>
+Date:   Sat Nov 3 15:24:55 2018 -0400
+
+    Solucion de CONFLICTS
+
+[33mcommit 5bb600975cf3711a6550d05ec85a156e0e1039c3[m
+Merge: 24da88e ad2b7f3
+Author: Jcapote <juanluis.capote8@gmail.com>
+Date:   Sat Nov 3 15:18:41 2018 -0400
+
+    Merge de cambios a Master
+
+[33mcommit ad2b7f33e85bc884c2275a718ab475da1aa898c6[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Alex143 <full-back-1996-05@hotmail.com>
+Date:   Sun Nov 4 10:29:51 2018 -0400
+
+    base general
+
+[33mcommit 23f2920d31aa9ad4d1bb888cc6695e5a524c49fc[m
+Author: Alex143 <full-back-1996-05@hotmail.com>
+Date:   Sun Nov 4 08:47:03 2018 -0400
+
+    estructura base laravel
+
+[33mcommit 24da88e8bbe7c58c74aa6ba736c064950b9106de[m
+Author: Jcapote <juanluis.capote8@gmail.com>
+Date:   Sat Nov 3 15:09:00 2018 -0400
+
+    Lista Dinamica V.0.1
+
+[33mcommit 0d5dc23db72158906f8aee71fceb04756ab05594[m[33m ([m[1;32mmaster[m[33m)[m
+Author: JCapote <juanluis.capote8@gmail.com>
+Date:   Sat Nov 3 14:06:00 2018 -0400
+
+    rm .zip files
+
+[33mcommit bf2f3201732ce5e06bf6902f68caf18f3e684e48[m
+Author: JCapote <juanluis.capote8@gmail.com>
+Date:   Sat Nov 3 13:46:49 2018 -0400
+
+    .gitignore issue Correction #1
+
+[33mcommit 3021d8fd7239159832c7e24c1aae850b23d5e1b9[m
+Author: JCapote <juanluis.capote8@gmail.com>
+Date:   Sat Nov 3 12:57:28 2018 -0400
+
+    First
